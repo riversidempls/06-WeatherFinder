@@ -12,8 +12,8 @@
 </head>
 <body>
     <header class="header"><h1>Weather Dashboard</h1></header>
-    
-    <aside class="aside">
+    <div class="col-sm-4">.col-sm-4
+  
     <h2>Search for a City:</h2>
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Enter a city name:">
@@ -21,6 +21,39 @@
           <button class="btn btn-success" type="submit">Go</button>
         </div>
       </div>
-    </aside>  
+    </div>
+      <div class="col-sm-8">.col-sm-8
+        <h2>Five Day Forecast</h2>
+        <!-- To display the current day's weather in this top container -->
+        <div class="container"> Today's Forecast</div>
+            <!-- To display the five day forecast for each day -->
+        <div class="card-deck">
+            <div id="dayOne" class="card bg-primary">
+              <div class="card-body text-center">
+                <p class="card-text">Some text inside the first card</p>
+              </div>
+            </div>
+            <div id="dayTwo" class="card bg-primary">
+              <div class="card-body text-center">
+                <p class="card-text">Some text inside the second card</p>
+              </div>
+            </div>
+            <div id="dayThree" class="card bg-primary">
+              <div class="card-body text-center">
+                <p class="card-text">Some text inside the third card</p>
+              </div>
+            </div>
+            <div id="dayFour" class="card bg-primary">
+              <div class="card-body text-center">
+                <p class="card-text">Some text inside the fourth card</p>
+              </div>
+            </div>
+            <div id="dayFive" class="card bg-primary">
+                <div class="card-body text-center">
+                  <p class="card-text">Some text inside the fourth card</p>
+                </div>
+              </div>
+          </div>
+      </div>
 </body>
 </html>
