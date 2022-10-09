@@ -9,48 +9,102 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src = ./assets/script.js></script>
     <title>What's The Weather?</title>
+    <style>
+      /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+      .row.content {height: 1500px}
+      
+      /* Set gray background color and 100% height */
+      .sidenav {
+        background-color: #59a9b3;
+        height: 100%;
+        padding: 20px;
+      }
+      
+      /* Set black background color, white text and some padding */
+      footer {
+        background-color: #555;
+        color: white;
+        padding: 15px;
+      }
+      
+      /* On small screens, set height to 'auto' for sidenav and grid */
+      @media screen and (max-width: 767px) {
+        .sidenav {
+          height: auto;
+          padding: 15px;
+        }
+        .row.content {height: auto;} 
+      }
+    </style>
 </head>
 <body>
-    <header class="header"><h1>Weather Dashboard</h1></header>
-    <div class="col-sm-4">.col-sm-4
+    <header class="jumbotron"><h1>Weather Dashboard</h1></header>
+
+    <!-- <div class="container-fluid"> -->
+      <div class="row content">
+        <div class="col-sm-3, sidenav">.col-sm-3
   
-    <h2>Search for a City:</h2>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Enter a city name:">
-        <div class="input-group-append">
-          <button class="btn btn-success" type="submit">Go</button>
+        <h2>Search for a City:</h2>
+          <div class="input-group mb-3">
+            <input type="text" id="cityText" class="form-control" placeholder="Enter a city name:">
+            <div class="input-group-append">
+              <button id="saveCityBtn" class="btn btn-success" type="submit">Go</button>
+            </div>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
-      <div class="col-sm-8">.col-sm-8
+
+        <div class="col-sm-9">.col-sm-9
+          <div id=#todayCard class="card">
+            <h2>Today's Forecast - <span>Saturday</span></h2>
+            <h3>Atlanta 10/8/2022<span>🤣</span></h3>
+              <p>Temp: 76.6 F</p>
+              <p>Wind 8.43</p>
+              <p>Humidity 44%</p>
+          </div>    
         <h2>Five Day Forecast</h2>
         <!-- To display the current day's weather in this top container -->
-        <div class="container"> Today's Forecast</div>
+        <!-- <div class="container"> Today's Forecast</div> -->
             <!-- To display the five day forecast for each day -->
-        <div class="card-deck">
-            <div id="dayOne" class="card bg-primary">
+        <div class="card-deck" style="color:white">
+            <div id="dayOne" class="card bg-secondary">
               <div class="card-body text-center">
-                <p class="card-text">Some text inside the first card</p>
+                <p class="card-text">10/9/2022 - <span>🍦</span>moment() date +1</p>
+                <p class="card-text">Temp: 90F</p>
+                <p class="card-text">Wind: 24mph</p>
+                <p class="card-text">Humidity: 34%</p>
               </div>
             </div>
-            <div id="dayTwo" class="card bg-primary">
+            <div id="dayTwo" class="card bg-secondary">
               <div class="card-body text-center">
-                <p class="card-text">Some text inside the second card</p>
+                <p class="card-text">10/10/2022 - moment() date +2</p>
+                <p class="card-text">Temp: 55F</p>
+                <p class="card-text">Wind: 9mph</p>
+                <p class="card-text">Humidity: 46%</p>
               </div>
             </div>
-            <div id="dayThree" class="card bg-primary">
+            <div id="dayThree" class="card bg-secondary">
               <div class="card-body text-center">
-                <p class="card-text">Some text inside the third card</p>
+                <p class="card-text">10/11/2022 - moment() date +3</p>
+                <p class="card-text">Temp: 69F</p>
+                <p class="card-text">Wind: 0mph</p>
+                <p class="card-text">Humidity: 22%</p>
               </div>
             </div>
-            <div id="dayFour" class="card bg-primary">
+            <div id="dayFour" class="card bg-secondary">
               <div class="card-body text-center">
-                <p class="card-text">Some text inside the fourth card</p>
+                <p class="card-text">10/12/2022 - moment() date +4</p>
+                <p class="card-text">Temp: 99F</p>
+                <p class="card-text">Wind: 11mph</p>
+                <p class="card-text">Humidity: 66%</p>
               </div>
             </div>
-            <div id="dayFive" class="card bg-primary">
+            <div id="dayFive" class="card bg-secondary">
                 <div class="card-body text-center">
-                  <p class="card-text">Some text inside the fourth card</p>
+                  <p class="card-text">10/13/2022 - moment() date +5</p>
+                  <p class="card-text">Temp: 90F</p>
+                  <p class="card-text">Wind: 24mph</p>
+                  <p class="card-text">Humidity: 34%</p>
                 </div>
               </div>
           </div>
