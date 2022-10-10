@@ -25,27 +25,16 @@ function doSearch()
   const baseURL = 'https://api.openweathermap.org';
   let cityName = $("#cityText").val();
   fetch(baseURL+"/geo/1.0/direct?q="+cityName+"&limit=1&appid="+appid)
-   .then((data)=>{
-    // console.log(data);
-    return data.json();
-   }).then((completedata)=>{
-    console.log(completedata[0].lat);
-    console.log(completedata[0].lon);
-        //some more steps, maybe create variables and pass on to next fetch?
-        let lat = (completedata[0].lat);
-        let lon = (completedata[0].lon);
-        fetch(baseURL+"/data/3.0/onecall?lat="+lat+"&lon="+lon+"&exclude=minutely,hourly,alerts&appid="+appid+"&units=imperial")
-          .then((wdata)=>{
-            // console.log(wdata);
-            return wdata.json();
-          }).then((completewd)=>{
-            console.log(completewd);
-          })
-        })}})
+   .then((response) => response.json());
+   .then(data => console.log(data));
+   return data.json();
+  };
+  .then((completedata)=>{
+  console.log(completedata[2].lat);
 
-// }).catch((err)=>{
-//   console.log(err);
-// })
+}).catch((err)=>{
+  console.log(err);
+})
 
   
   // const cityData = fetch(response);
@@ -73,8 +62,8 @@ function doSearch()
   
 // console.log(lat);
 // console.log(lon);
-
-
+  };
+})
 
 ///TEST
 //    fetch('https://pinballmap.com/api/v1/machines.json'
