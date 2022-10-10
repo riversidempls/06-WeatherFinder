@@ -1,4 +1,5 @@
-//var geoURLSuffix = {baseURL}+'/geo/1.0/direct?q='+{cityEntered}+'&limit=1&appid='+{appid};
+//should I be setting some of theise things as global variables first?
+
 
 // var cityEntered = 1;
 
@@ -25,23 +26,65 @@ function doSearch()
   const baseURL = 'https://api.openweathermap.org';
   let cityName = $("#cityText").val();
   fetch(baseURL+"/geo/1.0/direct?q="+cityName+"&limit=1&appid="+appid)
-   .then((data)=>{
+   .then((response)=>{
     // console.log(data);
-    return data.json();
-   }).then((completedata)=>{
+    return response.json();
+   })
+   .then((completedata)=>{
     console.log(completedata[0].lat);
     console.log(completedata[0].lon);
         //some more steps, maybe create variables and pass on to next fetch?
         let lat = (completedata[0].lat);
         let lon = (completedata[0].lon);
         fetch(baseURL+"/data/3.0/onecall?lat="+lat+"&lon="+lon+"&exclude=minutely,hourly,alerts&appid="+appid+"&units=imperial")
-          .then((wdata)=>{
+          .then((response)=>{
             // console.log(wdata);
-            return wdata.json();
-          }).then((completewd)=>{
-            console.log(completewd);
+            return response.json();
           })
-        })}})
+          .then((completewd)=>{
+            console.log(completewd);
+            // return completewd.json();
+            //render weatherdata in here next
+
+            //-----------------
+
+            let temp = completewd.daily.temp;
+            let wind = completewd.daily.wind;
+            let humidity = completewd.daily.humidity;
+
+            let cardData = "";
+
+            completewd.map((values)=>{
+              cardData+=` <div id="dayOne" class="card bg-secondary">
+              <div class="card-body text-center">
+                <p class="card-text">${values.date}</p><span>${values.icon}</span>
+                <p class="card-text">Temp: ${values.temp} F</p>
+                <p class="card-text">Wind: ${values.wind}mph</p>
+                <p class="card-text">Humidity: ${values.humidity}%</p>
+              </div>`
+            } );
+            document.getElementById("weatherCards").innerHTML = cardData
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          })
+          
+        }
+        )
+      }
+    })
 
 // }).catch((err)=>{
 //   console.log(err);
