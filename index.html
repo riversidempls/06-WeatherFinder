@@ -1,84 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src = ./assets/script.js></script>
-    <title>What's The Damn Weather?</title>
-    <style>
-      /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-      .row.content {height: 1500px}
-      
-      /* Set gray background color and 100% height */
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src=./assets/script.js></script>
+  <title>What's The Damn Weather?</title>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {
+      height: 1500px
+    }
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #59a9b3;
+      height: 100%;
+      padding: 20px;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
       .sidenav {
-        background-color: #59a9b3;
-        height: 100%;
-        padding: 20px;
-      }
-      
-      /* Set black background color, white text and some padding */
-      footer {
-        background-color: #555;
-        color: white;
+        height: auto;
         padding: 15px;
       }
-      
-      /* On small screens, set height to 'auto' for sidenav and grid */
-      @media screen and (max-width: 767px) {
-        .sidenav {
-          height: auto;
-          padding: 15px;
-        }
-        .row.content {height: auto;} 
-      }
-    </style>
-</head>
-<body>
-    <header class="jumbotron"><h1>What's the Damn Weather?</h1></header>
 
-    <!-- <div class="container-fluid"> -->
-      <div class="row content">
-        <div class="col-sm-3, sidenav">.col-sm-3
-  
-        <h2>Search for a City:</h2>
-          <div class="input-group mb-3">
-            <input type="text" id="cityText" class="form-control" placeholder="Enter a city name:">
-            <div class="input-group-append">
-              <button id="saveCityBtn" class="btn btn-success" type="submit">Go</button>
-              <br>
-            </div>
+      .row.content {
+        height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="jumbotron">
+    <h1>What's the Damn Weather?</h1>
+  </header>
+
+  <!-- <div class="container-fluid"> -->
+  <div class="row content">
+    <div class="col-sm-3, sidenav" style:"display-flex">
+      <h2>Search for a City:</h2>
+      <div class="input-group mb-3">
+        <input type="text" id="cityText" class="form-control" placeholder="Enter a city name:">
+        <div class="input-group-append">
+          <button id="saveCityBtn" class="btn btn-success" type="submit">Go</button>
+        </div>
+        <div>
+          <ul id="cityList">
+          </ul>
         </div>
       </div>
-    
+    </div>
 
-        <div class="col-sm-9">.col-sm-9
-          <div id=#todayCard class="card">
-            <h2>Today's Forecast - <span>Saturday</span></h2>
-            <h3>Atlanta 10/8/2022<span>🤣</span></h3>
-              <p>Temp: TEMPF F</p>
-              <p>Wind: WINDSP Mph</p>
-              <p>Humidity: HUMP %</p>
-          </div>    
-        <h2>Five Day Forecast</h2>
-        <!-- To display the current day's weather in this top container -->
-        <!-- <div class="container"> Today's Forecast</div> -->
-            <!-- To display the five day forecast for each day -->
-        <div class="card-deck" id="weatherCards" style="color:white">
-            <!-- <div id="dayOne" class="card bg-secondary">
-              <div class="card-body text-center">
-                <p class="card-text">10/9/2022</p><span></span>
-                <p class="card-text">Temp: 90F</p>
-                <p class="card-text">Wind: 24mph</p>
-                <p class="card-text">Humidity: 34%</p>
-              </div> -->
-            </div>
-
-            
-          </div>
+    <!-- To display the current day's weather in this top container -->
+    <div style:"display-felx">
+      <div id="todayCard" class="card">
+        <h2 id="today"></h2>
+        <h3 id="citydate"></h3>
+        <h4 id="currentTime"></h4>
+        <img id="curicon" alt="icon" src="" width="75" height="75">
+        <p id="curtemp">Temp:</p>
+        <p id="curwind">Wind:</p>
+        <p id="curhumidity">Humidity:</p>
       </div>
+
+      <!-- To display the forecast for the next five days -->
+      <h2>Five Day Forecast</h2>
+
+      <div class="card-deck" id="weatherCards" style="color:white">
+
+      </div>
+
+
+    </div>
+  </div>
 </body>
+
 </html>
