@@ -18,7 +18,7 @@
 
     /* Set gray background color and 100% height */
     .sidenav {
-      background-color: #59a9b3;
+      background-color: #8cb4b9;
       height: 100%;
       padding: 20px;
     }
@@ -51,7 +51,7 @@
 
   <!-- <div class="container-fluid"> -->
   <div class="row content">
-    <div class="col-sm-3, sidenav" style:"display-flex">
+    <div class="col-sm-3, sidenav" style:"display-flex", "margin:25">
       <h2>Search for a City:</h2>
       <div class="input-group mb-3">
         <input type="text" id="cityText" class="form-control" placeholder="Enter a city name:">
@@ -66,8 +66,8 @@
     </div>
 
     <!-- To display the current day's weather in this top container -->
-    <div style:"display-flex">
-      <div id="todayCard" class="card">
+    <div id="forecasts" style:"display-flex">
+      <div id="todayCard" class="card" style:"padding=25px">
         <h2 id="today"></h2>
         <h3 id="citydate"></h3>
         <h4 id="currentTime"></h4>
@@ -80,7 +80,7 @@
       <!-- To display the forecast for the next five days -->
       <h2>Five Day Forecast</h2>
 
-      <div class="card-deck" id="card-deck" style="color:rgb(68, 37, 37)">
+      <div class="card-deck" id="card-deck">
 
       </div>
 

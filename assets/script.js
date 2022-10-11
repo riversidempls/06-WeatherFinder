@@ -10,6 +10,8 @@ window.onload = function setDateTime() {
 };
 
 $(document).ready(function () {
+  //hide the unfilled forecast divs until content is loaded
+  $("#forecasts").hide();
 
   //get the city name from the element on button click
   $("#saveCityBtn").click(doSearch);
@@ -30,6 +32,7 @@ $(document).ready(function () {
   // Function below executes API search using city name and passes to geocoding API, 
   // then gets back lat lon coordinates and passes to weather data API
   function doSearch() {
+    $("#forecasts").show(); // show the forecast divs only after button click
     const appid = 'bdc63249ca9c768d065db41d5ee05a7d';
     const baseURL = 'https://api.openweathermap.org';
     let cityName = $("#cityText").val();
